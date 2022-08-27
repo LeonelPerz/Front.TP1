@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import { getColores } from './Servicios/coloresServicios';
+import axios from "axios";
+import Login from './components/Login/Login';
+import "./components/Login/LoginStyles.css";
+import Semaforo from './components/Semaforo/Semaforo';
+import "./components/Semaforo/SemaforoStyles.css";
+import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Login/>} />
+        <Route path='/semaforo' element={<Semaforo/>} />
+      </Routes>
+      
+      
+    </Router>
   );
 }
 
