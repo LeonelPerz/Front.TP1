@@ -1,10 +1,12 @@
 import React from "react";
-function Navbar (){
-
-
-return (
-    <div>asdasdas</div>
-)
+import { Link } from "react-router-dom";
+function Navbar() {
+  return (
+    <div>
+      <Link to="/">Home</Link>
+      <Link to="/dashboard">Home</Link>
+    </div>
+  );
 }
 
 export default Navbar;
