@@ -1,35 +1,31 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login() {
-  
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  
   const database = [
     {
       username: "administrador",
-      password: "1234"
+      password: "1234",
     },
     {
       username: "supervisordecalidad",
-      password: "1234"
+      password: "1234",
     },
     {
-        username: "supervisordelinea",
-        password: "1234"
-    }
+      username: "supervisordelinea",
+      password: "1234",
+    },
   ];
 
   const errors = {
     uname: "Usuario incorrecto",
-    pass: "Contraseña incorrecta"
+    pass: "Contraseña incorrecta",
   };
 
-
   const handleSubmit = (event) => {
-    
     event.preventDefault();
 
     var { uname, pass } = document.forms[0];
@@ -45,16 +41,13 @@ function Login() {
     } else {
       setErrorMessages({ name: "uname", message: errors.uname });
     }
-    
   };
 
-  
-    const renderErrorMessage = (name) =>
+  const renderErrorMessage = (name) =>
     name === errorMessages.name && (
       <div className="error">{errorMessages.message}</div>
     );
 
-  
   const renderForm = (
     <div className="form">
       <form onSubmit={handleSubmit}>
@@ -76,16 +69,16 @@ function Login() {
   );
 
   return (
-
-    
     <div className="login">
       <div className="login-form">
         <div className="title">Iniciar sesión</div>
-        {isSubmitted ? <div>El usuario inició sesión correctamente</div> : renderForm}
+        {isSubmitted ? (
+          <div>El usuario inició sesión correctamente</div>
+        ) : (
+          renderForm
+        )}
       </div>
     </div>
-
-
   );
 }
 
