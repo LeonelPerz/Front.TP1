@@ -36,16 +36,26 @@ const ModelApp = () => {
     const [db, setDb] = useState(initialDb);
     const [dataToEdit, setDataToEdit] = useState(null);
 
-    //Cambiar estas 3 funciones, usar con context para no estar pasando a por cada hijo
+    //Cambiar estas 3 funciones, usar con context para no estar pasando por cada hijo
     const createData = (data) => {
         data.id = Date.now(); // solo para simular un id
-        console.log(data);
         setDb([...db, data]);
     };
 
-    const updateData = (data) => { };
+    const updateData = (data) => {
+        let newData = db.map(element => element.id === data.id ? data : element);
+        setDb(newData);
+    };
 
-    const deleteData = (sku) => { };
+    const deleteData = (sku) => {
+        let isDelete = window.confirm(`¿Estás seguro de eliminar el registrocon el id '${sku}'?`);
+        if (isDelete) {
+            let newData = db.filter(element => element.sku !== sku);
+            setDb(newData);
+        } else {
+            return;
+        }
+    };
 
     return (
         <div>

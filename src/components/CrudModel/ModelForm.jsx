@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const initialForm = {
   sku: 0,
@@ -21,9 +21,8 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
     }
   }, [dataToEdit]);
 
-
   const handleChange = (e) => {
-    if (e.target.type === 'number') {
+    if (e.target.type === "number") {
       e.target.value = parseInt(e.target.value);
     }
     setForm({
@@ -43,7 +42,7 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
       !form.limiteInferiorReproceso ||
       !form.limiteSuperiorReproceso
     ) {
-      alert('Datos Incompletos');
+      alert("Datos Incompletos");
       return;
     }
 
@@ -63,9 +62,11 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
   return (
     <div>
-      <h3>Agregar</h3>
+      <h3>{dataToEdit ? "Editar" : "Agregar"}</h3>
       <form onSubmit={handleSubmit}>
-        <label> SKU
+        <label>
+          {" "}
+          SKU
           <input
             type="number"
             name="sku"
@@ -75,7 +76,8 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           />
         </label>
 
-        <label>Descripcion
+        <label>
+          Descripcion
           <input
             type="text"
             name="descripcion"
@@ -85,7 +87,8 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           />
         </label>
 
-        <label>Limite Inferior Reproceso
+        <label>
+          Limite Inferior Reproceso
           <input
             type="number"
             name="limiteInferiorReproceso"
@@ -95,7 +98,8 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           />
         </label>
 
-        <label>Limite Superior Reproceso
+        <label>
+          Limite Superior Reproceso
           <input
             type="number"
             name="limiteSuperiorReproceso"
@@ -105,7 +109,8 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           />
         </label>
 
-        <label>Limite Inferior Observado
+        <label>
+          Limite Inferior Observado
           <input
             type="number"
             name="limiteInferiorObservado"
@@ -115,7 +120,8 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           />
         </label>
 
-        <label>Limite Superior Observado
+        <label>
+          Limite Superior Observado
           <input
             type="number"
             name="limiteSuperiorObservado"
@@ -129,7 +135,7 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
         <input type="reset" value="Limpiar" onClick={handleReset} />
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default ModelForm
+export default ModelForm;
