@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ModelForm from './CrudModel/ModelForm';
-import ModelTable from './CrudModel/ModelTable';
+import ModelForm from './ModelForm';
+import ModelTable from './ModelTable';
 
 const initialDb = [
     {

@@ -28,9 +28,9 @@ const Login = () => {
     e.preventDefault();
     if (username === "admin" && password === "admin") {
       setError("");
-      navigate("/dashboard", { replace: true });
+      navigate("/home", { replace: true });
     } else {
-      setError("Invalid username or password");
+      setError("Usuario y/o contraseña invalidos");
     }
   };
 
@@ -48,7 +48,7 @@ const Login = () => {
         onChange={setPassword}
         type="password"
       />
-      <Btn onClick={handleSubmit} scheme="dark">
+      <Btn onClick={handleSubmit} >
         Login
       </Btn>
       <div>{error}</div>

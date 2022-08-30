@@ -1,21 +1,22 @@
 import "./App.css";
-import { useEffect, useState } from "react";
-import { getColores } from "./Servicios/coloresServicios";
-import axios from "axios";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
 import "./components/Login/LoginStyles.css";
-import Semaforo from "./components/Semaforo/Semaforo";
 import "./components/Semaforo/SemaforoStyles.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
+import SemaforoMenu from "./pages/SemaforoMenu";
+import Colores from "./pages/Colores";
+import Home from "./pages/Home";
+import { ModelPage } from "./pages/ModelPage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Login/>} />
+        <Route path="/home" element={<Home/>} />
+        <Route path="/semaforo" element={<SemaforoMenu/>} />
+        <Route path="/colores" element={<Colores/>} />
+        <Route path="/modelos" element={<ModelPage/>} />
       </Routes>
     </Router>
   );
