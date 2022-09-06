@@ -7,18 +7,21 @@ import SemaforoMenu from "./pages/SemaforoMenu";
 import Colores from "./pages/Colores";
 import Home from "./pages/Home";
 import { ModelPage } from "./pages/ModelPage";
+import Container from "@mui/material/Container";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login/>} />
-        <Route path="/home" element={<Home/>} />
-        <Route path="/semaforo" element={<SemaforoMenu/>} />
-        <Route path="/colores" element={<Colores/>} />
-        <Route path="/modelos" element={<ModelPage/>} />
-      </Routes>
-    </Router>
+    <Container>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/semaforo" element={<SemaforoMenu />} />
+          <Route path="/colores" element={<Colores />} />
+          <Route path="/modelos" element={<ModelPage />} />
+        </Routes>
+      </Router>
+    </Container>
   );
 }
 

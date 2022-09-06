@@ -1,5 +1,5 @@
 import React from "react";
-import ModelTableRow from "./ModelTableRow";
+import ModelTableRow from "../TableRow/ModelTableRow";
 
 const ModelTable = ({ data, setDataToEdit, deleteData }) => {
   return (

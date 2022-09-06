@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Button, TextField } from "@mui/material";
+import "./ModelForm.css";
 
 const initialForm = {
   sku: 0,
@@ -64,17 +66,22 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
     <div>
       <h3>{dataToEdit ? "Editar" : "Agregar"}</h3>
       <form onSubmit={handleSubmit}>
-        <label>
-          {" "}
-          SKU
+        <TextField
+          id="outlined-sku"
+          label="SKU"
+          InputLabelProps={{ shrink: true }}
+          name="sku"
+          value={form.sku}
+          onChange={handleChange}
+        />
+        {/*
           <input
             type="number"
             name="sku"
             placeholder="Sku"
             value={form.sku}
             onChange={handleChange}
-          />
-        </label>
+          */}
 
         <label>
           Descripcion
@@ -131,8 +138,12 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           />
         </label>
 
-        <input type="submit" vale="Enviar" />
-        <input type="reset" value="Limpiar" onClick={handleReset} />
+        <Button variant="contained" type="submit">
+          Enviar
+        </Button>
+        <Button variant="contained" type="reset" onClick={handleReset}>
+          Limpiar
+        </Button>
       </form>
     </div>
   );

@@ -8,6 +8,8 @@ const ModelTableRow = ({ element, setDataToEdit, deleteData }) => {
     limiteInferiorObservado,
     limiteSuperiorReproceso,
     limiteSuperiorObservado,
+    ordenesDePrduccion,
+    id,
   } = element;
 
   return (
@@ -15,8 +17,8 @@ const ModelTableRow = ({ element, setDataToEdit, deleteData }) => {
       <td>{sku}</td>
       <td>{descripcion}</td>
       <td>{limiteInferiorReproceso}</td>
-      <td>{limiteInferiorObservado}</td>
       <td>{limiteSuperiorReproceso}</td>
+      <td>{limiteInferiorObservado}</td>
       <td>{limiteSuperiorObservado}</td>
       <td>
         <button onClick={() => setDataToEdit(element)}>Editar</button>

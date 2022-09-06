@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 import Layout from "../layouts/Default";
-import ModelApp from '../components/CrudModel/ModelApp'
+import ModelApp from "../components/CrudModel/App/ModelApp";
 
 export const ModelPage = () => {
   return (
     <Layout>
-        <ModelApp/>
+      <ModelApp />
     </Layout>
-  )
-}
+  );
+};
