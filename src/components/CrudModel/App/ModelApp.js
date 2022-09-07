@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GetModels } from '../../../Services/modelServices';
 import ModelForm from '../Form/ModelForm';
 import ModelTable from '../Table/ModelTable';
+import ModelTable2 from '../Table/ModelTable2';
 
 const ModelApp = () => {
     const [db, setDb] = useState([]);
@@ -24,7 +25,7 @@ const ModelApp = () => {
         setDb(newData);
     };
     const deleteData = (sku) => {
-        let isDelete = window.confirm(`¿Estás seguro de eliminar el registrocon el id '${sku}'?`);
+        let isDelete = window.confirm(`¿Estás seguro de eliminar el registro con el id '${sku}'?`);
         if (isDelete) {
             let newData = db.filter(element => element.sku !== sku);
             setDb(newData);
@@ -48,6 +49,12 @@ const ModelApp = () => {
                 setDataToEdit={setDataToEdit}
                 deleteData={deleteData}
             />
+            <hr />
+            <ModelTable2
+            data={db}
+            setDataToEdit={setDataToEdit}
+            deleteData={deleteData}/>
+
         </div>
     )
 }
