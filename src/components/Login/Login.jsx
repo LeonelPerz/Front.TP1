@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import Input from "../Input/Input";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+const Login = () => {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const database = [
     {
@@ -20,66 +24,37 @@ function Login() {
     },
   ];
 
-  const errors = {
-    uname: "Usuario incorrecto",
-    pass: "Contraseña incorrecta",
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    var { uname, pass } = document.forms[0];
-
-    const userData = database.find((user) => user.username === uname.value);
-
-    if (userData) {
-      if (userData.password !== pass.value) {
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
-      }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username === "admin" && password === "admin") {
+      setError("");
+      navigate("/home", { replace: true });
     } else {
-      setErrorMessages({ name: "uname", message: errors.uname });
+      setError("Usuario y/o contraseña invalidos");
     }
   };
 
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
-
-  const renderForm = (
-    <div className="form">
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label>Usuario </label>
-          <input type="text" name="uname" required />
-          {renderErrorMessage("uname")}
-        </div>
-        <div className="input-container">
-          <label>Contraseña </label>
-          <input type="password" name="pass" required />
-          {renderErrorMessage("pass")}
-        </div>
-        <div className="button-container">
-          <input type="submit" />
-        </div>
-      </form>
-    </div>
-  );
-
   return (
-    <div className="login">
-      <div className="login-form">
-        <div className="title">Iniciar sesión</div>
-        {isSubmitted ? (
-          <div>El usuario inició sesión correctamente</div>
-        ) : (
-          renderForm
-        )}
-      </div>
+    <div>
+      <Input
+        placeholder="Username"
+        value={username}
+        onChange={setUsername}
+        type="text"
+      />
+      <Input
+        placeholder="Password"
+        value={password}
+        onChange={setPassword}
+        type="password"
+      />
+      <Button  variant="contained" size='small' onClick={handleSubmit}> 
+      Login 
+      </Button>
+      
+      <div>{error}</div>
     </div>
   );
-}
+};
 
 export default Login;

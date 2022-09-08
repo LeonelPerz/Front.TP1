@@ -1,6 +1,5 @@
 import "./App.css";
-import Login from "./pages/Login";
-import "./components/Login/LoginStyles.css";
+import Login from "./components/Login/Login.jsx";
 import "./components/Semaforo/SemaforoStyles.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SemaforoMenu from "./pages/SemaforoMenu";

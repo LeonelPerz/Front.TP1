@@ -6,7 +6,11 @@ import {
   TableRow,
   TableCell,
   Paper,
+  Button,
+  IconButton
 } from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import React from "react";
 
@@ -33,12 +37,15 @@ const ModelTable2 = ({ data, setDataToEdit, deleteData }) => {
               <TableCell>{row.limiteInferiorObservado}</TableCell>
               <TableCell>{row.limiteSuperiorReproceso}</TableCell>
               <TableCell>{row.limiteSuperiorObservado}</TableCell>
-              <Button variant="contained" type="submit">
-                Enviar
-              </Button>
-              <Button variant="contained" type="reset" onClick={handleReset}>
-                Limpiar
-              </Button>
+              
+              
+              <IconButton onClick={() => deleteData(row.sku)}>
+                <DeleteIcon/>
+              </IconButton>
+              
+              <IconButton onClick={() => setDataToEdit(row)}>
+                <EditIcon/>
+              </IconButton>
             </TableRow>
           ))}
         </TableBody>

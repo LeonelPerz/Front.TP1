@@ -43,12 +43,7 @@ const ModelApp = () => {
                 dataToEdit={dataToEdit}
                 setDataToEdit={setDataToEdit}
             />
-            <hr />
-            <ModelTable
-                data={db}
-                setDataToEdit={setDataToEdit}
-                deleteData={deleteData}
-            />
+            
             <hr />
             <ModelTable2
             data={db}
