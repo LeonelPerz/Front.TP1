@@ -17,6 +17,7 @@ const ModelApp = () => {
     //Cambiar estas 3 funciones, usar con context para no estar pasando por cada hijo
     const createData = (data) => {
         data.id = Date.now(); // solo para simular un id
+        // SaveModel(data);
         setDb([...db, data]);
     };
     const updateData = (data) => {

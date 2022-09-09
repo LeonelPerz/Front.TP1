@@ -8,3 +8,18 @@ export const GetModels = async () => {
         console.log(e);
     }
 };
+
+// export const SaveModel = async (modelData) => {
+//     try {
+//         await axios.post("https://localhost:7117/model/models", {
+//             sku: modelData.sku,
+//             descripcion: modelData.descripcion,
+//             limiteInferiorReproceso: modelData.limiteInferiorReproceso,
+//             limiteSuperiorReproceso: modelData.limiteSuperiorReproceso,
+//             limiteInferiorObservado: modelData.limiteInferiorObservado,
+//             limiteSuperiorObservado: modelData.limiteSuperiorObservado
+//         });
+//     } catch (e) {
+//         console.log(e);
+//     }
+// };
