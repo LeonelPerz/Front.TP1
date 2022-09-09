@@ -7,10 +7,10 @@ import {
   TableCell,
   Paper,
   Button,
-  IconButton
+  IconButton,
 } from "@mui/material";
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import React from "react";
 
@@ -26,26 +26,31 @@ const ModelTable2 = ({ data, setDataToEdit, deleteData }) => {
             <TableCell>Limite Superior Reproceso</TableCell>
             <TableCell>Limite Inferior Observado</TableCell>
             <TableCell>Limite Superior Observado</TableCell>
+            <TableCell> </TableCell>
+            <TableCell> </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row) => (
-            <TableRow key={row.sku}>
-              <TableCell> {row.sku} </TableCell>
-              <TableCell>{row.descripcion}</TableCell>
-              <TableCell>{row.limiteInferiorReproceso}</TableCell>
-              <TableCell>{row.limiteInferiorObservado}</TableCell>
-              <TableCell>{row.limiteSuperiorReproceso}</TableCell>
-              <TableCell>{row.limiteSuperiorObservado}</TableCell>
-              
-              
-              <IconButton onClick={() => deleteData(row.sku)}>
-                <DeleteIcon/>
-              </IconButton>
-              
-              <IconButton onClick={() => setDataToEdit(row)}>
-                <EditIcon/>
-              </IconButton>
+          {data.map((element) => (
+            <TableRow key={element.sku}>
+              <TableCell> {element.sku} </TableCell>
+              <TableCell>{element.descripcion}</TableCell>
+              <TableCell>{element.limiteInferiorReproceso}</TableCell>
+              <TableCell>{element.limiteInferiorObservado}</TableCell>
+              <TableCell>{element.limiteSuperiorReproceso}</TableCell>
+              <TableCell>{element.limiteSuperiorObservado}</TableCell>
+
+              <TableCell>
+                <IconButton onClick={() => deleteData(element.sku)}>
+                  <DeleteIcon />
+                </IconButton>
+              </TableCell>
+
+              <TableCell>
+                <IconButton onClick={() => setDataToEdit(element)}>
+                  <EditIcon />
+                </IconButton>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

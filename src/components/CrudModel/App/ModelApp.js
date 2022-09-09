@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { GetModels } from '../../../Services/modelServices';
+import { GetModels, CreateModel } from '../../../Services/modelServices';
 import ModelForm from '../Form/ModelForm';
-import ModelTable from '../Table/ModelTable';
 import ModelTable2 from '../Table/ModelTable2';
 
 const ModelApp = () => {
@@ -18,6 +17,7 @@ const ModelApp = () => {
     //Cambiar estas 3 funciones, usar con context para no estar pasando por cada hijo
     const createData = (data) => {
         data.id = Date.now(); // solo para simular un id
+        CreateModel(data);
         setDb([...db, data]);
     };
     const updateData = (data) => {
@@ -43,12 +43,12 @@ const ModelApp = () => {
                 dataToEdit={dataToEdit}
                 setDataToEdit={setDataToEdit}
             />
-            
+
             <hr />
             <ModelTable2
-            data={db}
-            setDataToEdit={setDataToEdit}
-            deleteData={deleteData}/>
+                data={db}
+                setDataToEdit={setDataToEdit}
+                deleteData={deleteData} />
 
         </div>
     )

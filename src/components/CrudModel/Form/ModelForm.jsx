@@ -74,14 +74,6 @@ const ModelForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           value={form.sku}
           onChange={handleChange}
         />
-        {/*
-          <input
-            type="number"
-            name="sku"
-            placeholder="Sku"
-            value={form.sku}
-            onChange={handleChange}
-          */}
 
         <label>
           Descripcion
